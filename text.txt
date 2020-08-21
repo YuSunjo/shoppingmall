@@ -1,0 +1,29 @@
+express 사용 
+init -- start : nodemon app.js 
+        dev   : nodemon app.js -- npm run dev(run을 붙여야됨 )
+        npx -- 설치가 안되어있을 때 바로 설치
+
+라우팅  -- 파일로 나눠서 해본것
+
+view engine nunjucks (template 활용-render써서)
+       "start" : "npx nodemon -e js,html app.js" 
+lock.jason -- 하위 모듈들의 버전들이 적혀있음
+
+템플릿 상속
+
+미들웨어 --중간자 역할 중간에 놓고 next하면 다음 함수로 넘어감 
+최우선- 1미들웨어 -2미들웨어  잘보기 ...
+
+bodyparser-- req.body.이름  
+
+rest api
+get/users => 사용자 정보
+post/users=> 사용자 추가
+get/ users(id ) => 한명만 볼때
+put /users(id) => 한명 수정하기
+delete /users /id => 삭제 
+
+global view variable  로그인되어있다는표시 같은것을 모든곳에 코딩해주기 힘들때
+global로 해서 나타냄 
+
+
