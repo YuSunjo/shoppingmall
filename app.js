@@ -2,12 +2,14 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
+const db=require('./models')
 
 class App {
 
     constructor () {
         this.app = express();
+        //db접속
+        this.dbConnection();
         
         // 뷰엔진 셋팅
         this.setViewEngine();
@@ -32,6 +34,20 @@ class App {
 
 
     }
+    dbConnection(){
+        // DB authentication
+        db.sequelize.authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+        })
+        .then(() => {
+            console.log('DB Sync complete.');
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
+    }
+
 
 
     setMiddleWare (){
@@ -87,5 +103,7 @@ class App {
     }
 
 }
+
+// process.DB_USER 이런식으로 사용가능 (.env파일에서)
 
 module.exports = new App().app;
